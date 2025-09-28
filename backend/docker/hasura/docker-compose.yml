@@ -2,7 +2,7 @@ version: '3.6'
 services:
   go-backend:
     build: 
-      context: ..  # Build from backend directory
+      context: ../..  # Build from backend directory
       dockerfile: Dockerfile
     ports:
       - "8081:8081"
