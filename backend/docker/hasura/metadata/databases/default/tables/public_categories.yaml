@@ -1,0 +1,40 @@
+table:
+  name: categories
+  schema: public
+array_relationships:
+  - name: recipes
+    using:
+      foreign_key_constraint_on:
+        column: category_id
+        table:
+          name: recipes
+          schema: public
+select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - created_at
+        - id
+        - image
+        - name
+      filter:
+        _exists:
+          _table:
+            name: categories
+            schema: public
+          _where: {}
+    comment: ""
+  - role: user
+    permission:
+      columns:
+        - created_at
+        - id
+        - image
+        - name
+      filter:
+        _exists:
+          _table:
+            name: categories
+            schema: public
+          _where: {}
+    comment: ""

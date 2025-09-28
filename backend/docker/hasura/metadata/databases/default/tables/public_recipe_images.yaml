@@ -1,0 +1,70 @@
+table:
+  name: recipe_images
+  schema: public
+object_relationships:
+  - name: recipe
+    using:
+      foreign_key_constraint_on: recipe_id
+insert_permissions:
+  - role: user
+    permission:
+      check:
+        recipe:
+          user_id:
+            _eq: X-Hasura-User-Id
+      columns:
+        - image_url
+        - is_featured
+        - recipe_id
+    comment: ""
+select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - created_at
+        - id
+        - image_url
+        - is_featured
+        - recipe_id
+      filter:
+        _exists:
+          _table:
+            name: recipe_images
+            schema: public
+          _where: {}
+    comment: ""
+  - role: user
+    permission:
+      columns:
+        - created_at
+        - id
+        - image_url
+        - is_featured
+        - recipe_id
+      filter:
+        _exists:
+          _table:
+            name: recipe_images
+            schema: public
+          _where: {}
+    comment: ""
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - image_url
+        - is_featured
+      filter:
+        recipe:
+          user_id:
+            _eq: X-Hasura-User-Id
+      check: null
+    comment: ""
+delete_permissions:
+  - role: user
+    permission:
+      filter:
+        recipe:
+          user_id:
+            _eq: X-Hasura-User-Id
+    comment: ""

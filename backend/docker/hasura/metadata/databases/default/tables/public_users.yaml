@@ -1,0 +1,78 @@
+table:
+  name: users
+  schema: public
+array_relationships:
+  - name: bookmarks
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: bookmarks
+          schema: public
+  - name: comments
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: comments
+          schema: public
+  - name: likes
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: likes
+          schema: public
+  - name: purchases
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: purchases
+          schema: public
+  - name: ratings
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: ratings
+          schema: public
+  - name: recipes
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: recipes
+          schema: public
+select_permissions:
+  - role: anonymous
+    permission:
+      columns: []
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+    comment: ""
+  - role: user
+    permission:
+      columns:
+        - created_at
+        - id
+        - username
+      filter:
+        _exists:
+          _table:
+            name: users
+            schema: public
+          _where: {}
+    comment: ""
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - updated_at
+        - username
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      check: null
+    comment: ""
