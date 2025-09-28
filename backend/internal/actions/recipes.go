@@ -89,7 +89,7 @@ func CreateRecipeHandler(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// GetRecipeHandler - Get single recipe by ID
+// GetRecipeHandler - Get single recipe by ID.
 func GetRecipeHandler(w http.ResponseWriter, r *http.Request) {
 	recipeID := r.URL.Query().Get("id")
 	if recipeID == "" {
