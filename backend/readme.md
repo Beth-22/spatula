@@ -79,6 +79,4 @@ go run cmd/server/main.go
 
 
 
-## 🤝 Author
 
-Developed by [Your Name]
