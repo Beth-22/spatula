@@ -181,13 +181,33 @@ export const useAuth = () => {
     navigateTo("/login");
   };
 
-  // Add updateProfile function for profile page
+  // Add to your useAuth composable
   const updateProfile = async (profileData) => {
-    // For now, just update local state
-    if (user.value) {
-      user.value = { ...user.value, ...profileData };
+    try {
+      console.log("📝 Updating profile:", profileData);
+
+      // Make API call to your backend
+      const response = await $fetch("http://localhost:8081/actions/profile", {
+        method: "PUT",
+        body: JSON.stringify(profileData),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authToken.value}`,
+        },
+      });
+
+      console.log("✅ Profile update response:", response);
+
+      // Update local user state
+      if (user.value) {
+        user.value = { ...user.value, ...profileData };
+      }
+
+      return { success: true, message: "Profile updated successfully" };
+    } catch (error) {
+      console.error("❌ Profile update failed:", error);
+      throw new Error(error.message || "Failed to update profile");
     }
-    return { success: true };
   };
 
   // Initialize on client side

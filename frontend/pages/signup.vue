@@ -10,6 +10,7 @@
         >
         <div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
         <div class="absolute bottom-8 left-8 text-white">
+
           <h2 class="text-3xl font-bold mb-2">Join Our Culinary Community</h2>
           <p class="text-orange-200 text-lg">Discover amazing recipes and share your culinary creations</p>
         </div>
@@ -23,7 +24,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
             </svg>
           </div>
-          <h1 class="text-3xl font-bold text-gray-900 mb-2">Create Account</h1>
+          <h1 class="text-3xl font-bold text-gray-900 mb-2">Create a <span class="text-4xl">SEASONED</span> Account</h1>
           <p class="text-gray-600">Join thousands of food enthusiasts</p>
         </div>
 

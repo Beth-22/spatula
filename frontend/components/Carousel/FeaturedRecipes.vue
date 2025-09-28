@@ -27,7 +27,7 @@
 const featuredRecipes = [
   {
     id: 1,
-    name: 'PENANG HOKKIEN PRAWN MEE',
+    name: 'ETHIOPIAN TRADITIONAL KITFO RECIPE',
     description: 'Authentic Malaysian street food with rich prawn broth, fresh noodles, bean sprouts, and hard-boiled eggs. A symphony of flavors that will transport you to the streets of Penang.',
     image: 'https://www.tasteatlas.com/Images/Dishes/1da821e8c98a42f38ede3fd8556652d2.jpg',
     time: '45 min',
