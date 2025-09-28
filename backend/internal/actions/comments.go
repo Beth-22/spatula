@@ -12,7 +12,7 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
-// CreateCommentHandler creates a new comment for a recipe
+// CreateCommentHandler creates a new comment for a recipe,
 func CreateCommentHandler(w http.ResponseWriter, r *http.Request) {
     // Get user ID from context using your existing helper
     userID, err := auth.GetUserIDFromContext(r.Context())
