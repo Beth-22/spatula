@@ -5,7 +5,7 @@ Built with **Nuxt 3 (Vue)**, **Hasura GraphQL (Docker)**, **Postgres**, and **Go
 
 
 
-## 🚀 Features
+##  Features
 
 * Browse recipes (by category, creator, ingredients, prep time)
 * Create recipes with steps, images, and ingredients
