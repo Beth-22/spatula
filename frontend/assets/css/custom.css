@@ -1,0 +1,31 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Your custom styles will go here */
+/* Circular text animation */
+.circle-text {
+  animation: rotateText 10s linear infinite;
+}
+
+.group:hover .circle-text {
+  animation-duration: 5s;
+}
+
+@keyframes rotateText {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Smooth image scaling */
+.recipe-circle {
+  transition: all 0.5s ease-in-out;
+}
+
+.recipe-circle:hover {
+  transform: scale(1.1);
+}
