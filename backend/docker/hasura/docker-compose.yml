@@ -1,39 +1,30 @@
 version: '3.6'
 services:
-  go-backend:
-    build: 
-      context: ../..  # Build from backend directory
-      dockerfile: Dockerfile
-    ports:
-      - "8081:8081"
+  postgres:
+    image: postgres:15
+    restart: always
     environment:
-      HASURA_GRAPHQL_URL: http://hasura:8080/v1/graphql  # Connect to hasura service
-      HASURA_GRAPHQL_ADMIN_SECRET: your_secure_production_secret
-      PORT: 8081
-      # Your other env vars...
-      SUPABASE_URL: https://jlwyiaxjugfzuvpiscez.supabase.co
-      SUPABASE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impsd3lpYXhqdWdmenV2cGlzY2V6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODIxMjMzMiwiZXhwIjoyMDczNzg4MzMyfQ.KrjbNTCqmxMs82LU71T6qNBTG3gVmFetMH3Vm_G2paQ
-      SUPABASE_BUCKET: recipe-images
-      CHAPA_SECRET_KEY: CHASECK_TEST-QCh5tJKwqRBk84EtNS7p6ShlvqDLWIbq
-      CHAPA_PUBLIC_KEY: CHAPUBK_TEST-L2LbZMxqZdIP7edOYJFHhqwBLqdYuF2i
-      CHAPA_WEBHOOK_SECRET: lancetproverbs
-      CHAPA_BASE_URL: https://api.chapa.co
-      CHAPA_WEBHOOK_URL: http://go-backend:8081  # Internal Docker network
-      FRONTEND_URL: https://your-nuxt-app.vercel.app
+      POSTGRES_PASSWORD: lancetdb
+      POSTGRES_DB: spatuladb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
   hasura:
     image: hasura/graphql-engine:v2.32.0
+    restart: always
     ports:
       - "8080:8080"
     depends_on:
-      - go-backend
+      - postgres
     environment:
-      HASURA_GRAPHQL_DATABASE_URL: postgresql://postgres:lancetdbsupabase@db.jlwyiaxjugfzuvpiscez.supabase.co:5432/postgres
-      HASURA_GRAPHQL_ADMIN_SECRET: your_secure_production_secret
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:lancetdb@postgres:5432/spatuladb
+      HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
       HASURA_GRAPHQL_JWT_SECRET: '{"type":"HS256","key":"my_super_secret_key_that_is_at_least_32_chars"}'
       HASURA_GRAPHQL_UNAUTHORIZED_ROLE: anonymous
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
-      HASURA_GRAPHQL_CORS_DOMAIN: "https://your-nuxt-app.vercel.app"
-      
-      # Point actions to your Go backend (internal Docker network)
-      HASURA_GRAPHQL_ACTIONS_HANDLER_WEBHOOK_BASEURL: "http://go-backend:8081"
+      HASURA_GRAPHQL_CORS_DOMAIN: "*"
+
+volumes:
+  postgres_data:
