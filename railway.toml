@@ -1,13 +1,44 @@
-[build]
-builder = "DOCKERFILE"
-dockerfilePath = "backend/docker/hasura/Dockerfile"
+# railway.toml
+[[services]]
+name = "backend"
+path = "backend"
+build {
+  builder = "DOCKERFILE"
+  dockerfilePath = "backend/Dockerfile"
+}
+deploy {
+  restartPolicyType = "ON_FAILURE"
+  numReplicas = 1
+  sleepApplication = false
+}
+[services.variables]
+PORT = "8081"
+HASURA_GRAPHQL_URL = "https://your-hasura.up.railway.app/v1/graphql"
+HASURA_GRAPHQL_ADMIN_SECRET = "your_super_secret_admin_password"
+JWT_SECRET = "my_super_secret_key_that_is_at_least_32_chars"
+SUPABASE_URL = "https://jlwyiaxjugfzuvpiscez.supabase.co"
+SUPABASE_KEY = "<your supabase key>"
+SUPABASE_BUCKET = "recipe-images"
+CHAPA_SECRET_KEY = "CHASECK_TEST-QCh5tJKwqRBk84EtNS7p6ShlvqDLWIbq"
+CHAPA_PUBLIC_KEY = "CHAPUBK_TEST-L2LbZMxqZdIP7edOYJFHhqwBLqdYuF2i"
+CHAPA_WEBHOOK_SECRET = "lancetproverbs"
+CHAPA_BASE_URL = "https://api.chapa.co"
+CHAPA_WEBHOOK_URL = "https://your-backend.up.railway.app"
+FRONTEND_URL = "https://your-frontend.vercel.app"
 
-[deploy]
-numReplicas = 1
-sleepApplication = false
-restartPolicyType = "ON_FAILURE"
-
-[environments]
-  [environments.production]
-    [environments.production.variables]
-    NODE_ENV = "production"
+[[services]]
+name = "hasura"
+build {
+  builder = "DOCKERFILE"
+  dockerfilePath = "hasura/Dockerfile" # optional if using official image
+}
+deploy {
+  restartPolicyType = "ON_FAILURE"
+  numReplicas = 1
+  sleepApplication = false
+}
+[services.variables]
+HASURA_GRAPHQL_DATABASE_URL = "postgresql://postgres:<SUPABASE_PASSWORD>@db.inyvjefytsezzgwnuopy.supabase.co:5432/postgres"
+HASURA_GRAPHQL_ADMIN_SECRET = "your_super_secret_admin_password"
+HASURA_GRAPHQL_UNAUTHORIZED_ROLE = "public"
+HASURA_GRAPHQL_ENABLED_LOG_TYPES = "startup,http-log,webhook-log,websocket-log,query-log"
