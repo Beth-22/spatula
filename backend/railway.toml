@@ -1,0 +1,13 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "backend/docker/hasura/Dockerfile"
+
+[deploy]
+numReplicas = 1
+sleepApplication = false
+restartPolicyType = "ON_FAILURE"
+
+[environments]
+  [environments.production]
+    [environments.production.variables]
+    NODE_ENV = "production"
