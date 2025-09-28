@@ -72,8 +72,8 @@ go run cmd/server/main.go
 ![App Screenshot](../frontend/assets/images/ss2.png)
 ![App Screenshot](../frontend/assets/images/ss8.png)
 ![App Screenshot](../frontend/assets/images/ss6.png)
-![App Screenshot](../frontend/assets/images/ss7.png)
 ![App Screenshot](../frontend/assets/images/ss4.png)
+![App Screenshot](../frontend/assets/images/ss7.png)
 ![App Screenshot](../frontend/assets/images/ss3.png)
 
 
