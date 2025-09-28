@@ -67,6 +67,8 @@ go run cmd/server/main.go
 
 ## 📸 Demo
 
+![App Screenshot](../frontend/assets/images/ss1.png)
+
 
 
 ## 🤝 Author
