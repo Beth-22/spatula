@@ -7,12 +7,12 @@ Built with **Nuxt 3 (Vue)**, **Hasura GraphQL (Docker)**, **Postgres**, and **Go
 
 ## 🚀 Features
 
-* 🔍 Browse recipes (by category, creator, ingredients, prep time)
-* 🍴 Create recipes with steps, images, and ingredients
-* ❤️ Like, bookmark, comment, and rate recipes
-* 📂 Categories displayed on homepage
-* 👤 User accounts with signup/login
-* 🛠 Hasura Actions for auth, file upload, Chapa payments
+* Browse recipes (by category, creator, ingredients, prep time)
+* Create recipes with steps, images, and ingredients
+* Like, bookmark, comment, and rate recipes
+* Categories displayed on homepage
+* User accounts with signup/login
+* Hasura Actions for auth, file upload, Chapa payments
 
 ---
 
