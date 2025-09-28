@@ -21,14 +21,36 @@
       isolation_level: read-committed
       use_prepared_statements: false
   tables:
-  - "spatuladb/tables/public_bookmarks.yaml"
-  - "spatuladb/tables/public_categories.yaml"
-  - "spatuladb/tables/public_comments.yaml"
-  - "spatuladb/tables/public_ingredients.yaml"
-  - "spatuladb/tables/public_likes.yaml"
-  - "spatuladb/tables/public_purchases.yaml"
-  - "spatuladb/tables/public_ratings.yaml"
-  - "spatuladb/tables/public_recipe_images.yaml"
-  - "spatuladb/tables/public_recipes.yaml"
-  - "spatuladb/tables/public_steps.yaml"
-  - "spatuladb/tables/public_users.yaml"
+    - table:
+        schema: public
+        name: bookmarks
+    - table:
+        schema: public
+        name: categories
+    - table:
+        schema: public
+        name: comments
+    - table:
+        schema: public
+        name: ingredients
+    - table:
+        schema: public
+        name: likes
+    - table:
+        schema: public
+        name: purchases
+    - table:
+        schema: public
+        name: ratings
+    - table:
+        schema: public
+        name: recipe_images
+    - table:
+        schema: public
+        name: recipes
+    - table:
+        schema: public
+        name: steps
+    - table:
+        schema: public
+        name: users
