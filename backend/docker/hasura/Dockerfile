@@ -1,11 +1,8 @@
-# Multi-service Dockerfile
-FROM docker:latest
+FROM hasura/graphql-engine:v2.32.0
 
-# Install docker-compose and dependencies
-RUN apk add --no-cache docker-compose
+# Copy metadata if you have any custom configurations
+COPY metadata /hasura-metadata
 
-WORKDIR /app
-COPY . .
+EXPOSE 8080
 
-# Start both services
-CMD ["docker-compose", "up"]
+CMD ["graphql-engine", "serve"]
