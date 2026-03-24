@@ -30,11 +30,11 @@ Instructions are in [`frontend/README.md`](./frontend/README.md)
 
 ## 📸 Screenshots (More images on the backend dir)
 
-![App Screenshot](../frontend/assets/images/ss5.png)
+![App Screenshot](./frontend/assets/images/ss5.png)
 
-![App Screenshot](../frontend/assets/images/ss2.png)
+![App Screenshot](./frontend/assets/images/ss2.png)
 
-![App Screenshot](../frontend/assets/images/ss3.png)
+![App Screenshot](./frontend/assets/images/ss3.png)
 ![Home Screenshot](./frontend/assets/images/ss1.png)
 
 
