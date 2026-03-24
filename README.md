@@ -33,7 +33,7 @@ Instructions are in [`frontend/README.md`](./frontend/README.md)
 ![App Screenshot](./frontend/assets/images/ss5.png)
 ![Home Screenshot](./frontend/assets/images/ss1.png)
 ![App Screenshot](./frontend/assets/images/ss2.png)
-![App Screenshot](./frontend/assets/images/ss3.png)
+
 
 
 
