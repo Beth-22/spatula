@@ -28,7 +28,7 @@ Instructions are in [`frontend/README.md`](./frontend/README.md)
 
 ---
 
-## 📸 Screenshots (More on the backend dir)
+## 📸 Screenshots (More images on the backend dir)
 
 Home Page:
 ![Home Screenshot](./frontend/assets/images/ss1.png)
